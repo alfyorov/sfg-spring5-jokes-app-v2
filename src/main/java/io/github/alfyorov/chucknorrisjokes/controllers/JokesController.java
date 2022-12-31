@@ -1,6 +1,6 @@
-package io.github.alfyorov.chucknorrisjokes.controller;
+package io.github.alfyorov.chucknorrisjokes.controllers;
 
-import io.github.alfyorov.chucknorrisjokes.service.JokesService;
+import io.github.alfyorov.chucknorrisjokes.services.JokesService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,8 +14,8 @@ public class JokesController {
         this.jokesService = jokesService;
     }
 
-    @RequestMapping("/")
-    public String getChuckQuote(Model model) {
+    @RequestMapping({ "/", "" })
+    public String showChuckQuote(Model model) {
         model.addAttribute("joke", jokesService.getChuckQuote());
 
         return "index";
